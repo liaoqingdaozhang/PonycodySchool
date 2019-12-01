@@ -1,0 +1,46 @@
+spring:
+  profiles.active: dev
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  jackson:
+    default-property-inclusion: NON_NULL
+  application.name: rs
+
+mybatis:
+  typeAliasesPackage: org.hmf.rs.entity
+  configuration:
+    mapUnderscoreToCamelCase: true
+  mapper-locations: classpath*:mapper/**/*.xml
+
+wxapp:
+  id: wxca5c4166cb0b8c40
+  secret: 56a0c05162e1a4f82c8c03129b6d0dd3
+  authUrl: https://api.weixin.qq.com/sns/jscode2session
+  accessTokenUrl: https://api.weixin.qq.com/cgi-bin/token
+  wxcodeUrl: https://api.weixin.qq.com/wxa/getwxacodeunlimit
+
+
+jwt:
+  tokenExpirationTime: 720
+  tokenIssuer: org.hmf
+  tokenSigningKey: 09sijf*)sOj2
+
+http:
+  client:
+    maxTotal: 20
+    defaultMaxPerRoute: 10
+    connectTimeout: 5000
+    connectionRequestTimeout: 5000
+    socketTimeout: 5000
+    staleConnectionCheckEnabled: true
+
+app:
+  uploadFileRoot: F:/ws-assistant/labta/src/main/resources/static/static/upload
+  login:
+    timeout: 5
+
+logging:
+  level:
+    org.hmf.rs.dao: DEBUG

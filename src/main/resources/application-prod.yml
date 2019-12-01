@@ -1,0 +1,20 @@
+server:
+  port: 443
+  ssl:
+    key-store: /usr/rightslip-server/https/2901097_rightslide.shenzhuli.com.pfx
+    key-store-password: gk125PMR
+    key-store-type: JKS
+    key-alias: alias
+  tomcat:
+    max-threads: 10
+    min-spare-threads: 5
+    max-connections: 20
+    uri-encoding: utf-8
+
+spring:
+  datasource:
+    url: jdbc:mysql://118.31.111.44:3306/right_slip?serverTimezone=GMT%2B8&useSSL=false&useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&autoReconnect=true&failOverReadOnly=false
+    username: root
+    password: 123456
+
+

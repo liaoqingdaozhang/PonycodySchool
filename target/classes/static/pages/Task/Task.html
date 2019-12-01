@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 2 | Data Tables</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="../../resources/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../resources/bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="../../resources/bower_components/Ionicons/css/ionicons.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../../resources/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <!-- Theme style -->
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet" href="../../resources/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+
+    <link rel="stylesheet" href="../../resources/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="../../resources/dist/css/Common.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../../resources/dist/css/skins/_all-skins.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Google Font -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper" id="app">
+    <header class="main-header">
+        <!-- Logo -->
+        <a href="../../resources/index2.html" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>A</b>LT</span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg">Ponycody<b>School</b></span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top">
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- Messages: style can be found in dropdown.less-->
+                    <li class="dropdown messages-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-envelope-o"></i>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <!-- Messages: style can be found in dropdown.less-->
+                    <li class="dropdown messages-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-user"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <aside class="main-sidebar" style="background: white;color:9C9C9C">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <ul class="sidebar-menu" data-widget="tree">
+                <li style="padding-left: 20px;padding-top: 40px;padding-bottom: 40px;font-size: 22px">
+                    <span>Dreamax Academy</span>
+                </li>
+                <li style="padding-left: 20px;padding-bottom: 40px;font-size: 16px;border-bottom: 2px solid #e7e7e7">
+                    <span>Account type:Admin</span>
+                </li>
+                <li v-if="current=='MySchool'">
+                    <a href="../MySchool/MySchool.html" style="background: #dcdcdc;color: #313131">
+                        <span>MySchool</span>
+                    </a>
+                </li>
+                <li v-else>
+                    <a href="../MySchool/MySchool.html">
+                        <span>MySchool</span>
+                    </a>
+                </li>
+
+                <li v-if="current=='Teacher'">
+                    <a href="../Teacher/Teacher.html" style="background: #dcdcdc;color: #313131">
+                        <span>Teacher</span>
+                    </a>
+                </li>
+                <li v-else>
+                    <a href="../Teacher/Teacher.html">
+                        <span>Teacher</span>
+                    </a>
+                </li>
+
+
+                <li v-if="current=='Student'">
+                    <a href="../Student/Student.html" style="background: #dcdcdc;color: #313131">
+                        <span>Student</span>
+                    </a>
+                </li>
+                <li v-else>
+                    <a href="../Student/Student.html">
+                        <span>Student</span>
+                    </a>
+                </li>
+
+                <li v-if="current=='Class'">
+                    <a href="../Class/Class.html" style="background: #dcdcdc;color: #313131">
+                        <span>Class</span>
+                    </a>
+                </li>
+                <li v-else>
+                    <a href="../Class/Class.html">
+                        <span>Class</span>
+                    </a>
+                </li>
+
+                <li v-if="current=='Task'">
+                    <a href="../Task/Task.html" style="background: #dcdcdc;color: #313131">
+                        <span>Task</span>
+                    </a>
+                </li>
+                <li v-else>
+                    <a href="../Task/Task.html">
+                        <span>Task</span>
+                    </a>
+                </li>
+
+
+                <li v-if="current=='Lesson'">
+                    <a href="../Lesson/Lesson.html" style="background: #dcdcdc;color: #313131">
+                        <span>Lesson</span>
+                    </a>
+                </li>
+                <li v-else>
+                    <a href="../Lesson/Lesson.html">
+                        <span>Lesson</span>
+                    </a>
+                </li>
+
+
+                <li v-if="current=='Classroom'">
+                    <a href="../Classroom/Classroom.html" style="background: #dcdcdc;color: #313131">
+                        <span>Classroom</span>
+                    </a>
+                </li>
+                <li v-else>
+                    <a href="../Classroom/Classroom.html">
+                        <span>Classroom</span>
+                    </a>
+                </li>
+
+
+                <li v-if="current=='CourseResources'">
+                    <a href="../CourseResources/CourseResources.html" style="background: #dcdcdc;color: #313131">
+                        <span>CourseResources</span>
+                    </a>
+                </li>
+                <li v-else>
+                    <a href="../CourseResources/CourseResources.html">
+                        <span>CourseResources</span>
+                    </a>
+                </li>
+
+
+                <li v-if="current=='Files'">
+                    <a href="../Files/Files.html" style="background: #dcdcdc;color: #313131">
+                        <span>Files</span>
+                    </a>
+                </li>
+                <li v-else>
+                    <a href="../Files/Files.html">
+                        <span>Files</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="horizontal" style="margin-left: 15px;padding-top: 15px">
+            <a>Task</a>
+            /
+            <a>Add task</a>
+            /Quiz
+        </div>
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="col-sm-12 horizontal" style="margin-bottom: 15px">
+                                <div class="col-sm-9 vertical">
+                                    <div>Quiz name</div>
+                                    <input type="email" class="form-control col-lg-9" style="background:#f4f4f4;border-bottom: 1px solid #8d8d8d" placeholder="Quiz Name">
+                                </div>
+                                <div class="col-sm-3 vertical">
+                                    <div>Total score</div>
+                                    <input type="number" class="form-control col-lg-3" style="background:#f4f4f4;border-bottom: 1px solid #8d8d8d" placeholder="" value="0">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 horizontal" style="margin-bottom: 15px">
+                                <div class="col-sm-9 vertical">
+                                    <div>Question</div>
+                                    <textarea  maxlength="100" type="" class="form-control col-lg-9" style="height:100px;background:#f4f4f4;border-bottom: 1px solid #8d8d8d" placeholder="Enter description of the question here">
+                                    </textarea>
+                                    <a style="margin: 15px">Add hint</a>
+                                </div>
+                                <div class="col-sm-3 vertical">
+                                    <div>Question score</div>
+                                    <input type="number" class="form-control col-lg-3" style="background:#f4f4f4;border-bottom: 1px solid #8d8d8d" placeholder="" value="0">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 horizontal" style="margin-bottom: 15px">
+                                <div class="col-sm-9 vertical">
+                                    <div style="margin-bottom: 15px">Options random order</div>
+                                    <input type="checkbox" id="toggle-button">
+                                    <!--label中的for跟input的id绑定。作用是在点击label时选中input或者取消选中input-->
+                                    <label for="toggle-button" class="button-label">
+                                        <span class="circle"></span>
+                                        <span class="text on">on</span>
+                                        <span class="text off">off</span>
+                                    </label>
+                                </div>
+                                <div class="col-sm-3 vertical">
+
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 horizontal" style="margin-bottom: 15px">
+                                <div class="col-sm-9 vertical">
+                                    <div class="horizontal" style="justify-content:space-between">
+                                        <div>Option1</div>
+                                        <div>{{List1.info.length}}/100</div>
+                                    </div>
+                                    <textarea maxlength="100" type="" class="form-control col-lg-9" style="height:100px;background:#f4f4f4;border-bottom: 1px solid #8d8d8d" placeholder="Enter answer here"
+                                              v-model="List1.info">
+                                    </textarea>
+                                    <div class="horizontal" style="justify-content:space-between">
+
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"
+                                                       v-model="List1.check"> Check me out
+                                            </label>
+                                        </div>
+                                        <a style="margin: 15px">Add hint</a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 vertical">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 horizontal" style="margin-bottom: 15px">
+                                <div class="col-sm-9 vertical">
+                                    <div class="horizontal" style="justify-content:space-between">
+                                        <div>Option1</div>
+                                        <div>{{List2.info.length}}/100</div>
+                                    </div>
+                                    <textarea maxlength="100" type="" class="form-control col-lg-9" style="height:100px;background:#f4f4f4;border-bottom: 1px solid #8d8d8d" placeholder="Enter answer here"
+                                              v-model="List2.info">
+                                    </textarea>
+                                    <div class="horizontal" style="justify-content:space-between">
+
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"
+                                                v-model="List2.check"> Check me out
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <a style="margin: 15px">Add hint</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 vertical">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 horizontal" style="margin-bottom: 15px" v-for="(one,index) in List_add">
+                                <div class="col-sm-9 vertical">
+
+                                    <div class="horizontal" style="justify-content:space-between">
+                                        <div>Option{{index+3}}</div>
+                                        <div>{{one.info.length}}/100</div>
+                                    </div>
+                                    <textarea maxlength="100" type="" class="form-control col-lg-9" style="height:100px;background:#f4f4f4;border-bottom: 1px solid #8d8d8d" placeholder="Enter answer here"
+                                        v-model="one.info">
+                                    </textarea>
+                                    <div class="horizontal" style="justify-content:space-between">
+
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" v-model="one.check"> Check me out
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <a style="margin: 15px" v-on:click="Remove(index)">Remove</a>
+                                            <a style="margin: 15px">Add hint</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 vertical">
+                                </div>
+                            </div>
+                                <div class="col-lg-12" style="border-top: 1px solid #e5e5e5;padding-top: 15px">
+                                <button class="btn col-lg-2" style="margin-left: 15px;background: white;border: #1c73ff solid 1px; color: #1c73ff;height: 50px;text-align: center"
+                                    v-on:click="addList">Add new question  +</button>
+                            </div>
+                            <div class="col-sm-9 horizontal" style="margin-left: 5px;margin-top: 30px">
+                                <button type="button" class="btn margin col-lg-2" style="height:50px;border-radius: 0;background: #393939;color: white">Cancel</button>
+                                <button type="button" class="btn margin col-lg-2" style="height:50px;border-radius: 0;background: #393939;color: white">Preview</button>
+                                <button type="button" class="btn margin col-lg-2" style="height:50px;border-radius: 0;background: #c6c6c6;color: #b0b0b0">Save and back</button>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+        <!-- /.content -->
+    </div>
+
+    <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 3 -->
+<script src="../../resources/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../../resources/dist/js/vue.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="../../resources/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="../../resources/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../../resources/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="../../resources/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../../resources/bower_components/fastclick/lib/fastclick.js"></script>
+<!-- bootstrap datepicker -->
+<script src="../../resources/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../resources/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../resources/dist/js/demo.js"></script>
+<!-- page script -->
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            current: "Task",
+            List1:{"info":"","check":false,},
+            List2:{"info":"","check":false,},
+            add_number:1,
+            List_add:[
+            ],
+        },
+        methods: {
+            addList:function () {
+                this.List_add.push({"info":"","check":false,})
+            },
+            Remove:function (index) {
+                this.List_add.splice(index, 1);
+            }
+        }
+
+    })
+</script>
+<style type="text/css">
+    #toggle-button{
+        display: none;
+    }
+    .button-label{
+        position: relative;
+        display: inline-block;
+        width: 80px;
+        background-color: #ccc;
+        border: 1px solid #ccc;
+        border-radius: 30px;
+        cursor: pointer;
+    }
+    .circle{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #fff;
+    }
+    .button-label .text {
+        line-height: 30px;
+        font-size: 18px;
+
+        /*
+        用来阻止页面文字被选中，出现蓝色
+        可以将下面两行代码注释掉来查看区别
+        */
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    .on {
+        color: #fff;
+        display: none;
+        text-indent: 10px;
+    }
+    .off {
+        color: #fff;
+        display: inline-block;
+        text-indent: 53px;
+    }
+    .button-label .circle{
+        left: 0;
+        transition: all 0.3s;/*transition过度，时间为0.3秒*/
+    }
+    /*
+    以下是checked被选中后，紧跟checked标签后面label的样式。
+    例如：div+p 选择所有紧接着<div>元素之后的<p>元素
+    */
+    #toggle-button:checked + label.button-label .circle{
+        left: 50px;
+    }
+    #toggle-button:checked + label.button-label .on{
+        display: inline-block;
+    }
+    #toggle-button:checked + label.button-label .off{
+        display: none;
+    }
+    #toggle-button:checked + label.button-label{
+        background-color: #33FF66;
+    }
+</style>
+</body>
+</html>
